@@ -12,7 +12,7 @@ project root that looks something like:
 ```make
 # Required variables
 version-number  = 0.1.0
-group-id        = io.zalky
+group-id        = group.id
 artifact-id     = project
 
 # Optional variables, can be ommitted
