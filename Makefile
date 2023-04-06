@@ -15,6 +15,7 @@ git-branch      = $(shell git rev-parse --abbrev-ref HEAD)
 git-sha         = $(shell git rev-parse --short HEAD)
 revision        = $(git-branch)-$(git-sha)
 version         = $(version-number)$(if $(release),,-SNAPSHOT)
+tag-version     = v$(version)
 
 project-config  = :lib $(group-id)/$(artifact-id) :version "\"$(version)\""
 pom-config      = :description $(description) :license $(license) :url $(url)
@@ -27,12 +28,12 @@ versio%:
 
 #tag
 ta%:
-	@git tag $(version)
-	@echo "Created tag $(version)"
+	@git tag $(tag-version)
+	@echo "Created tag $(tag-version)"
 
 #push-tag
 push-ta%:
-	@git push origin $(version)
+	@git push origin $(tag-version)
 
 #jar
 ja%: clean
